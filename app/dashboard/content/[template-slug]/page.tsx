@@ -25,7 +25,7 @@ interface Props {
 
 function CreateContent(props: Props) {
   const [generateContent, setGenerateContent] = useState<string>('')
-  const selectedTemplate = Templates.find((item) => item?.slug === props.params['template-slug'])
+  const selectedTemplate = Templates.find((item: { slug: string }) => item?.slug === props.params['template-slug'])
   const [loading, setLoading] = useState(false)
   const { user } = useUser()
   const [totalUsage, setTotalUsage] = useContext(TotalUsageContext)

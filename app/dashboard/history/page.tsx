@@ -7,16 +7,14 @@ import Modal from './_component/Model'; // Import the Modal component
 import { marked } from 'marked';
 import Spinner from './../../dashboard/_components/Spinner'; // Import the Spinner component
 
-interface HistoryTableProps {
-  userId: string;
-}
+
 
 const fetchAllAIOutputs = async () => {
   const aiOutputs = await db.select().from(AIOutput).execute();
   return aiOutputs;
 };
 
-const HistoryTable: React.FC<HistoryTableProps> = ({ userId }) => {
+const HistoryTable = () => {
   const [aiOutputs, setAIOutputs] = useState<any[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedContent, setSelectedContent] = useState('');
@@ -52,6 +50,28 @@ const HistoryTable: React.FC<HistoryTableProps> = ({ userId }) => {
   };
 
   return (
+    <>
+        <div
+    className="relative px-10 tablet:px-20  min-h-[200px] py-[100px] overflow-hidden   w-full flex flex-col justify-center items-center gap-y-2 text-center bg-no-repeat bg-cover bg-fixed bg-[#007B8B] bg-center opacity-[0.93] bg-blend-multiply"
+    style={{
+      backgroundImage: "url('https://youthincmag.com/wp-content/uploads/2018/09/Tech-in-Education.jpg')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat"
+    }}
+  >
+  <h1 className='text-4xl font-bold text-white'>
+  AIcademy
+  </h1>
+  <h3  className='text-2xl font-bold text-white'>
+  Where Education Meets Innovation
+  </h3>
+  <p className='text-sm text-white'>
+  Our AI-enhanced Templates are designed to adapt to your personal learning style, ensuring that you receive the guidance and support 
+  </p>
+ 
+ 
+</div>
     <div className="p-5 shadow-md border rounded-lg bg-white">
       <h2 className="font-bold text-2xl mb-4">AI Output History</h2>
       {loading ? (
@@ -100,7 +120,8 @@ const HistoryTable: React.FC<HistoryTableProps> = ({ userId }) => {
         onClose={handleCloseModal}
         content={selectedContent}
       />
-    </div>
+    </div></>
+
   );
 };
 

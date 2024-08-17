@@ -1,17 +1,6 @@
-import { BookOpen, Briefcase, ClipboardList, FileSearch, FlaskConical, Languages, NotebookPen, Pencil, Presentation, ShieldCheck } from "lucide-react";
 
-type TemplateCategory =
-  | 'Blog'
-  | 'Research Paper'
-  | 'Presentation'
-  | 'Lab Report'
-  | 'Study Guide'
-  | 'Essay'
-  | 'Creative Writing'
-  | 'Languages'
-  | 'Academic Integrity'
-  | 'Professional Development';
-
+import { StaticImageData } from 'next/image';
+import { PATHS } from "@/constant";
 export interface FormField {
   label: string;
   name: string;
@@ -24,15 +13,32 @@ export interface Template {
     name: string;
     desc: string;
     aiPrompt: string;
-    category: TemplateCategory;
-    icon: string | typeof BookOpen | typeof Briefcase | typeof ClipboardList | typeof FileSearch | typeof FlaskConical | typeof Languages | typeof NotebookPen | typeof Pencil | typeof Presentation | typeof ShieldCheck;
+    category: string;
+    icon: StaticImageData | string;
     slug: string;
     form: FormField[];
-  }
+} 
   
+// @/type.ts
+  // Import if using StaticImageData
 
-import { PATHS } from "@/constant";
-import { StaticImageData } from "next/image";
+export interface Templat {
+  name: string;
+  desc: string;
+  aiPrompt: string;
+  category: string;
+  icon: StaticImageData | string;  // Adjust based on how icons are managed
+  slug: string;
+  form: {
+    label: string;
+    name: string;
+    field: 'input' | 'textarea' | 'dropdown';
+    required?: boolean;
+    options?: string[];
+  }[];
+}
+
+
 export type TNAVIITEM = {
   title: string;
   to: PATHS;

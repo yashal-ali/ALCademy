@@ -13,8 +13,8 @@ function TemplatesList({ userSearchInput }: TemplatesListProps) {
 
     useEffect(() => {
         if (userSearchInput) {
-            const filterData = Templates.filter((item)=> 
-                item.name.toLocaleLowerCase().includes(userSearchInput.toLocaleLowerCase())
+            const filterData:any = Templates.filter((item: { name: string; })=> 
+                item?.name.toLocaleLowerCase().includes(userSearchInput.toLocaleLowerCase())
             );
             setTemplateList(filterData);
         } else {

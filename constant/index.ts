@@ -20,10 +20,8 @@ import  {
   career_counselling,cerification_sugguestion,case_Study,experiment_report,dsa_problem,finder,
   historial_event,homework,interview,meditation_guide,iq_test,personal_statement,plan,project_proposal,study_music,skil_roadmap,
 } from '../public/asset'
-
-
-import { TNAVIITEM, TFOOTERNAV,TSERVICE ,TTESTIMONIAL,TFAQS, TBESTSELLING,TSUBCARDDATA} from "@/type";
-export const Templates=[
+import { Templat, TFAQS, TNAVIITEM, TSERVICE, TSUBCARDDATA } from '@/type';
+export const Templates:Templat[]| any=[
     {
         name:'Blog Title',
         desc:' AI to Generate Creative Blog Ideas',
@@ -794,44 +792,6 @@ export const NAVITEMS: TNAVIITEM[] = [
   },
 ];
 
-export const FOOTERNAV: TFOOTERNAV = {
-  "Quick Links": [
-    {
-      title: "Home",
-      to: PATHS.HOME,
-    },
-    {
-      title: "Features",
-      to: PATHS.FEATURES,
-    },
-    {
-      title: "Contact Us",
-      to: PATHS.CONTACT,
-    },
-    {
-      title: "Faq's",
-      to: PATHS.FAQ,
-    },
-  ],
-  "Get Connected With": [
-    {
-      title: "Facebook",
-      to: PATHS.FACEBOOK,
-    },
-    {
-      title: "Twitter",
-      to: PATHS.TWITTER,
-    },
-    {
-      title: "Linked In",
-      to: PATHS.LINKEDIN,
-    },
-    {
-      title: "Email",
-      to: PATHS.EMAIL,
-    },
-  ],
-};
 
 export const SERVICES: TSERVICE[] = [
   {
@@ -847,32 +807,7 @@ export const SERVICES: TSERVICE[] = [
     image: wellness
   },
 ];
-export const TESTIMONIALS:TTESTIMONIAL[] = [
-  {
-    name: "John Doe",
-    review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor  ",
-    rating: 5,
-  },
-  {
-    name: "Jane Smith",
-    review:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea",
-    rating: 4,
-  },
-  {
-    name: "Bob Johnson",
-    review:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    rating: 5,
-  },
-  {
-    name: "Alice Williams",
-    review:
-      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt",
-    rating: 3,
-  },
-  // Add more testimonials as needed
-];
+
 
 export const FAQS : TFAQS[] = [
   {

@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { TCARDDATA } from "@/types";
+import { TCARDDATA } from "@/type";
 
 type TProps = {
   data: TCARDDATA;
