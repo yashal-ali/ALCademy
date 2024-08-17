@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-
 import Input from "./Input";
 import { Textarea } from "@/components/ui/textarea";
+import emailjs from "emailjs-com";
 
 interface FormData {
   name: string;
@@ -47,7 +47,34 @@ function Form() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log("Form data:", formData);
+      emailjs
+        .send(
+          "service_9ho8amn", // Replace with your EmailJS Service ID
+          "__ejs-test-mail-service__", // Replace with your EmailJS Template ID
+          {
+            from_name: `${formData.name} ${formData.lastName}`,
+            email: formData.emailAddress,
+            message: formData.message,
+          },
+          "aPqPLJsR3YQ6YKvrk" // Replace with your EmailJS User ID
+        )
+        .then(
+          (response) => {
+            console.log("SUCCESS!", response.status, response.text);
+            // Reset form after successful submission
+            setFormData({
+              name: "",
+              lastName: "",
+              emailAddress: "",
+              message: "",
+            });
+            alert("Message sent successfully!");
+          },
+          (err) => {
+            console.log("FAILED...", err);
+            alert("Failed to send the message. Please try again later.");
+          }
+        );
     } else {
       console.log("Form validation failed");
     }
@@ -55,24 +82,23 @@ function Form() {
 
   return (
     <form
-      className="justify-center items-center flex-col max-w-[1000px] flex mx-auto"
+      className="flex flex-col justify-center items-center max-w-[1000px] w-full mx-auto p-4 sm:p-6 md:p-8"
       onSubmit={handleSubmit}
     >
-      {" "}
-      <div className="flex">
+      <div className="flex flex-col sm:flex-row sm:space-x-4 w-full">
         <Input
           placeholder="First Name"
           value={formData.name}
           error={errors.name}
           onChange={(e) => handleChange("name", e.target.value)}
-          className="  min-h-[74px] "
+          className="min-h-[74px] w-full"
         />
         <Input
           placeholder="Last Name"
           value={formData.lastName}
           error={errors.lastName}
           onChange={(e) => handleChange("lastName", e.target.value)}
-          className="ml-12  min-h-[74px] "
+          className="min-h-[74px] w-full mt-4 sm:mt-0"
         />
       </div>
       <Input
@@ -80,20 +106,19 @@ function Form() {
         value={formData.emailAddress}
         error={errors.emailAddress}
         onChange={(e) => handleChange("emailAddress", e.target.value)}
-        className="mt-4 min-h-[74px] min-w-[630px]"
+        className="mt-4 min-h-[74px] w-full"
       />
       <Textarea
         placeholder="Enter A Message"
         value={formData.message}
         onChange={(e: any) => handleChange("message", e.target.value)}
-        className="mt-4 h-[220px] max-w-[630px] bg-white text-black shadow-lg placeholder:text-gray-600"
-        
+        className="mt-4 h-[220px] w-full bg-white text-black shadow-lg placeholder:text-gray-600"
       />
-      <div className="flex justify-center items-center mt-10">
+      <div className="flex justify-center items-center mt-10 w-full">
         <button
-          title="Contact US"
+          title="Contact Us"
           type="submit"
-          className="bg-[#004643] text-white px-10 py-4 rounded-md font-bold text-center mt-4"
+          className="bg-[#004643] text-white px-6 py-3 rounded-md font-bold text-center w-full sm:w-auto"
         >
           Submit
         </button>
