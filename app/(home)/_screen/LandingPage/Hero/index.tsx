@@ -69,7 +69,7 @@ function Hero() {
       }}
       onClick={redirectToURL}
     >
-      <h1 className="text-white uppercase text-4xl leading-[49px] tablet:text-3xl tablet:leading-[44px] laptop:text-[42px] laptop:leading-[56px] max-w-[900px] mobile:max-w-[1000px] mobile:w-10/12 font-bold">
+      <h1 className="text-white uppercase  xl:text-[40px] md:text-[30px] text-[22px] sm:text-[18px] leading-[49px] tablet:text-3xl tablet:leading-[44px] laptop:text-[42px] laptop:leading-[56px] max-w-[900px] mobile:max-w-[1000px] mobile:w-10/12 font-bold">
         <>
         Transform Your Learning Experience with AI-Enhanced Templates
             <span className="cursor-blink"> !</span>

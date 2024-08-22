@@ -1,3 +1,4 @@
+import { UserButton } from '@clerk/nextjs';
 import { Search } from 'lucide-react';
 import React from 'react';
 
@@ -15,7 +16,7 @@ function SearchSection({ onSearchInput }: SearchSectionProps) {
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat"
     }}
-  >
+  >   <UserButton/>
         <h2 className='text-3xl font-bold text-white'>
             Browse All the Templates
         </h2>

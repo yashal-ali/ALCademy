@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import {
   ClerkProvider,
+  SignIn,
   SignInButton,
   SignedIn,
   SignedOut,
@@ -21,13 +22,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-          {children}
+           {children}
         </body>
       </html>
     </ClerkProvider>

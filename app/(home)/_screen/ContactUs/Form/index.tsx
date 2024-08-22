@@ -50,7 +50,7 @@ function Form() {
       emailjs
         .send(
           "service_9ho8amn", // Replace with your EmailJS Service ID
-          "__ejs-test-mail-service__", // Replace with your EmailJS Template ID
+          "template_7gt3qu6", // Replace with your EmailJS Template ID
           {
             from_name: `${formData.name} ${formData.lastName}`,
             email: formData.emailAddress,
@@ -85,7 +85,7 @@ function Form() {
       className="flex flex-col justify-center items-center max-w-[1000px] w-full mx-auto p-4 sm:p-6 md:p-8"
       onSubmit={handleSubmit}
     >
-      <div className="flex flex-col sm:flex-row sm:space-x-4 w-full">
+      <div className="flex flex-col sm:flex-row sm:space-x-4 md:min-w-[600px] min-w-full">
         <Input
           placeholder="First Name"
           value={formData.name}
@@ -101,18 +101,21 @@ function Form() {
           className="min-h-[74px] w-full mt-4 sm:mt-0"
         />
       </div>
+      <div className=" md:min-w-[600px] min-w-full">
       <Input
         placeholder="Email Address"
         value={formData.emailAddress}
         error={errors.emailAddress}
         onChange={(e) => handleChange("emailAddress", e.target.value)}
-        className="mt-4 min-h-[74px] w-full"
+        className="min-h-[74px] w-full mt-4"
       />
+      </div>
+     
       <Textarea
         placeholder="Enter A Message"
         value={formData.message}
         onChange={(e: any) => handleChange("message", e.target.value)}
-        className="mt-4 h-[220px] w-full bg-white text-black shadow-lg placeholder:text-gray-600"
+        className="mt-4 h-[220px] w-full bg-white text-black shadow-lg placeholder:text-gray-600 max-w-[600px]"
       />
       <div className="flex justify-center items-center mt-10 w-full">
         <button
