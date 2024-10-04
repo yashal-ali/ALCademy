@@ -1,8 +1,13 @@
+![image](https://github.com/user-attachments/assets/7fe5f6a6-79e6-4734-97f4-95b57224f490)
 
 
 # **ALCademy - AI-Powered Educational Content Generator**
 
 **ALCademy** is a platform that leverages artificial intelligence to assist students and teachers in generating educational content rapidly. Whether you need to draft an essay, plan a study session, outline a research paper, or create a lesson plan, **ALCademy** provides over 20 customizable templates for a wide variety of educational needs.
+
+
+## **Live Demo**
+You can access the live deployment of **ALCademy** here: [ALCademy - Live](https://al-cademy-iqzq.vercel.app/)
 
 ## **Features**
 - **AI-Generated Content**: Choose from over 20 pre-built templates to create educational content in seconds.
